@@ -6,6 +6,105 @@
         {
             while (true)
             {
+                Console.WriteLine("Select game mode (Street Fight = 1, War = 2)");
+                string mode = Console.ReadLine();
+                Console.WriteLine();
+                if (mode == "1")
+                {
+                    StreetFight();
+                    break;
+                }
+                else if (mode == "2")
+                {
+                    War();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Try again.");
+                }
+            }
+        }
+
+        public static void War()
+        {
+            while (true)
+            {
+                Console.WriteLine("First team");
+                List<Monster> army1 = CreateArmy();
+                Console.WriteLine("\nSecond team");
+                List<Monster> army2 = CreateArmy();
+
+                if (army1.First().GetType().Name != army2.First().GetType().Name)
+                {
+                    while (army1.Any() && army2.Any())
+                    {
+                        Tuple<Monster, int> results = Fight(army1.First(), army2.First());
+                        if (results.Item1.GetType().Name == army1.First().GetType().Name)
+                        {
+                            army2.RemoveAt(0);
+                        }
+                        else
+                        {
+                            army1.RemoveAt(0);
+                        }
+                    }
+                    if (army1.Any())
+                    {
+                        Console.WriteLine($"The {army1.First().GetType().Name}s won!");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"The {army2.First().GetType().Name}s won!");
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Civil wars are not allowed. Please use different types of monsters.\n");
+                }
+
+            }
+        }
+
+        public static List<Monster> CreateArmy()
+        {
+            List<Monster> output = new List<Monster>();
+            Random random = new Random();
+
+            while (true)
+            {
+                Console.WriteLine("Enter type of the monster (Orc = 1, Troll = 2, Goblin = 3)");
+                string monsterType = Console.ReadLine();
+                if (monsterType == "1" || monsterType == "2" || monsterType == "3")
+                {
+                    while (true)
+                    {
+                        try
+                        {
+                            Console.WriteLine("Enter size of army.");
+                            int sizeOfArmy = Int32.Parse(Console.ReadLine());
+                            for (int i = 0; i < sizeOfArmy; i++)
+                            {
+                                output.Add(CreateMonster(monsterType, "dummy", [random.Next(1, 1000), random.Next(20, 100), random.Next(1, 20), random.Next(1, 100)]));
+                            }
+                            return output;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Invalid input. Try again.");
+                        }
+                    }
+                }
+                Console.WriteLine("Invalid input. Try again.");
+            }
+        }
+
+        public static void StreetFight()
+        {
+            while (true)
+            {
                 Console.WriteLine("First Monster");
                 Monster monster1 = ReadMonsterStats();
                 Console.WriteLine("\nSecond Monster");
@@ -24,13 +123,13 @@
                     else
                     {
                         Console.WriteLine("This fight is endless. We will never know who wins.\n");
-                    }  
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Civil wars are not allowed. Please use different types of monsters.\n");
-                } 
-            } 
+                }
+            }
         }
 
         public static Monster ReadMonsterStats()
