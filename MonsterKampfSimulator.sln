@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonsterKampfSimulator", "MonsterKampfSimulator\MonsterKampfSimulator.csproj", "{619E4E13-BDE8-4A6D-B49B-610D009CE557}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{619E4E13-BDE8-4A6D-B49B-610D009CE557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619E4E13-BDE8-4A6D-B49B-610D009CE557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619E4E13-BDE8-4A6D-B49B-610D009CE557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619E4E13-BDE8-4A6D-B49B-610D009CE557}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F8CFDC5-C2F8-44A9-BCAF-2D583C8DFECE}
+	EndGlobalSection
+EndGlobal
