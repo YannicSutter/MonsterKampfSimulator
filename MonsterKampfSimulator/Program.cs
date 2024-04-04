@@ -6,7 +6,6 @@
         {
             while (true)
             {
-
                 Console.WriteLine("First Monster");
                 Monster monster1 = ReadMonsterStats();
                 Console.WriteLine("\nSecond Monster");
@@ -25,18 +24,13 @@
                     else
                     {
                         Console.WriteLine("This fight is endless. We will never know who wins.\n");
-                    }
-
-                        
+                    }  
                 }
                 else
                 {
                     Console.WriteLine("Civil wars are not allowed. Please use different types of monsters.\n");
-                }
-                
-            }
-
-            
+                } 
+            } 
         }
 
         public static Monster ReadMonsterStats()
